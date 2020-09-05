@@ -1,6 +1,6 @@
 /* @flow */
 
-import type { MiddlewareSync, QueryPayload } from 'react-relay-network-modern/lib/definition';
+import type { MiddlewareSync, QueryPayload } from 'react-relay-network-modern/es/definition';
 import type { SSRCache } from './server';
 import { getCacheKey } from './utils';
 

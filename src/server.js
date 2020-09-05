@@ -1,9 +1,9 @@
 /* @flow */
 
 import { inspect } from 'util';
-import RelayResponse from 'react-relay-network-modern/lib/RelayResponse';
-import type { Middleware, QueryPayload } from 'react-relay-network-modern/lib/definition';
-import type RelayRequest from 'react-relay-network-modern/lib/RelayRequest';
+import { RelayNetworkLayerResponse } from 'react-relay-network-modern/es';
+import type { Middleware, QueryPayload } from 'react-relay-network-modern/es/definition';
+import type RelayRequest from 'react-relay-network-modern/es/RelayRequest';
 import {
   graphql,
   type GraphQLSchema,
@@ -38,7 +38,7 @@ export default class RelayServerSSR {
       const cachedResponse = this.cache.get(cacheKey);
       if (cachedResponse) {
         this.log('Get graphql query from cache', cacheKey);
-        return RelayResponse.createFromGraphQL(await cachedResponse);
+        return RelayNetworkLayerResponse.createFromGraphQL(await cachedResponse);
       }
 
       this.log('Run graphql query', cacheKey);
@@ -73,7 +73,7 @@ export default class RelayServerSSR {
 
       const res = await gqlResponse;
       this.log('Recieved response for', cacheKey, inspect(res, { colors: true, depth: 4 }));
-      return RelayResponse.createFromGraphQL(res);
+      return RelayNetworkLayerResponse.createFromGraphQL(res);
     };
   }
 
