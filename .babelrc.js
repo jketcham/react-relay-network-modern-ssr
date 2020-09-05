@@ -30,6 +30,9 @@ module.exports = {
         ]
       ]
     },
+    es: {
+      plugins: ['@babel/plugin-proposal-class-properties'],
+    },
     node8: {
       presets: [
         [
